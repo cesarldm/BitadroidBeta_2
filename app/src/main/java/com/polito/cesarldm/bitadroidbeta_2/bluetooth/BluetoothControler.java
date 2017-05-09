@@ -8,7 +8,7 @@ import android.os.Parcelable;
  * Created by CesarLdM on 5/5/17.
  */
 
-public class BluetoothControler implements  {
+public class BluetoothControler {
 
 
 
