@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 initializeBitalinoApi();
                 registerReceiver(mBroadcastReceiver, updateIntentFilter());
                 try {
-                    bitacom.connect(device.getAddress());
+                    bitacom.disconnect();
                 } catch (BITalinoException e) {
                     e.printStackTrace();
                 }
@@ -123,6 +123,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+       // Intent intent=new Intent(this,MesengerActivity.class);
+       // intent.putExtra("address",)
+
         switch(v.getId()){
             case R.id.btn_MA_connect:
                 try {
@@ -139,15 +142,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(bthIntent,BLUETOOTH_INTENT);
                 break;
             case R.id.btn_MA_start_recording:
-                if(device!=null){
-                    if(isConnected==true){
-                        try {
-                            bitacom.disconnect();
-                        } catch (BITalinoException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                Intent recordIntent=new Intent(this,RecordingMenuActivity.class);
+
+                Intent recordIntent=new Intent(this,MesengerActivity.class);
                     recordIntent.putExtra("address",device.getAddress());
                     startActivity(recordIntent);
 
@@ -157,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 

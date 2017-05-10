@@ -60,9 +60,9 @@ public class BluetoothActivity extends AppCompatActivity implements View.OnClick
         btnScan = (Button) findViewById(R.id.btn_AB_Scan);
         btnStop = (Button) findViewById(R.id.btn_AB_Stop_Scan);
         prgScanning = new ProgressDialog(BluetoothActivity.this);
+
         prgScanning.setMessage("Scanning...");
         final BluetoothManager bthManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
-        //bthAdapter=BluetoothAdapter.getDefaultAdapter();
         mHandler = new Handler();
         bthAdapter = bthManager.getAdapter();//preguntar por los minsdk¡¡¡
         checkBlueToothState();
